@@ -1,0 +1,7 @@
+version: '3'
+services: 
+  dev:
+    image: node:slim
+    volumes: 
+      - .:/workspace
+    working_dir: /workspace

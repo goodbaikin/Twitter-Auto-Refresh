@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Setting</title>
+    <style>
+        body {
+            width: 120px;
+            height: 70px;
+        }
+    </style>
+    <script type="text/javascript">
+        window.onload = function () {
+            let inputs = [
+                document.getElementById("min"),
+                document.getElementById("sec")
+            ]
+
+            chrome.storage.sync.get(['time'], (result) => {
+                const time = isNaN(result.time) ? 3 : result.time / 1000
+                inputs[0].value = Math.floor(time / 60)
+                inputs[1].value = time % 60
+
+                inputs.map((input) => {
+                    input.onchange = () => {
+                        if (inputs[0].value + inputs[1].value == 0) {
+                            inputs[1].value = 1
+                            return
+                        }
+                        let seconds = 60 * parseInt(inputs[0].value) + parseInt(inputs[1].value)
+                        let time = 1000 * seconds
+                        chrome.storage.sync.set({ 'time': time })
+                    }
+                })
+            })
+        }
+    </script>
+</head>
+
+<body>
+    <h3>Interval</h3>
+    <input type="number" min="0" max="99" step="1" id="min"> min
+    <input type="number" min="0" max="59" step="1" id="sec"> sec
+</body>
+
+
+</html>

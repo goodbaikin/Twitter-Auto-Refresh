@@ -1,0 +1,23 @@
+{
+  "name": "Twitter Auto Refresh",
+  "descriptions": "Auto reload timeline on twitter.com",
+  "permissions": [
+    "storage"
+  ],
+  "manifest_version": 2,
+  "version": "1.0.0",
+  "browser_action": {
+    "default_icon": "icon128.png",
+    "default_popup": "popup.html"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://twitter.com/home"
+      ],
+      "js": [
+        "content_scripts.js"
+      ]
+    }
+  ]
+}
