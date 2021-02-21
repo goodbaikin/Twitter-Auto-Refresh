@@ -1,6 +1,6 @@
 {
   "name": "Twitter-Auto-Refresh",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "main": "content_scripts.js",
   "repository": "https://github.com/goodbaikin/Twitter-Auto-Refresh",
   "license": "MIT",
@@ -16,7 +16,6 @@
   },
   "dependencies": {
     "@types/chrome": "^0.0.130",
-    "webextension-polyfill": "^0.7.0",
     "webextension-polyfill-ts": "^0.25.0"
   }
 }

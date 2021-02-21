@@ -5,9 +5,11 @@ function refresh() {
     element.click()
 }
 
-function refreshIfOnTop() {
+function refreshIfOnHomeTop() {
     if (window.pageYOffset == 0) {
-        refresh()
+        if (location.pathname == "/home") {
+            refresh()
+        }
     }
 }
 
@@ -17,7 +19,7 @@ const setTime = function () {
     return (time: number) => {
         _time = time
         clearInterval(interval)
-        interval = setInterval(refreshIfOnTop, _time)
+        interval = setInterval(refreshIfOnHomeTop, _time)
     }
 }();
 
